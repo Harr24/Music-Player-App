@@ -1,18 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+
+/* Root Variables */
+
 :root {
-    --white: #ffffff;
+    --white: #fff;
     --black: #1c2b2d;
-    --blue: #4a90e2;
-    /* Softer blue */
+    --blue: #31326f;
     --light-blue: #005490;
     --color-primary: #9d0191;
     --color-sec: #db6400;
-    --color-grey: #f0f0f0;
-    /* Lighter grey */
+    --color-grey: #eee;
     --color-dark-grey: #222831;
-    --gradient-bg: linear-gradient(135deg, #4a90e2 0%, #50e3c2 100%);
-    /* Gradient background */
 }
+
+
+/* Reset */
 
 * {
     margin: 0;
@@ -20,14 +22,16 @@
     box-sizing: border-box;
 }
 
+
+/* Base Styles */
+
 html {
     font-size: 10px;
 }
 
 body {
     font-family: "Open Sans", sans-serif;
-    background: var(--gradient-bg);
-    color: var(--black);
+    background: var(--color-dark-grey);
 }
 
 p {
@@ -39,14 +43,14 @@ img {
     width: 100%;
 }
 
+
+/* Layout */
+
 .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
 }
-
-
-/* Start Here */
 
 .box {
     width: 100%;
@@ -56,23 +60,20 @@ img {
     align-items: center;
 }
 
+
+/* Music Player */
+
 .music {
     position: relative;
     background: var(--white);
     width: 25rem;
-    border-radius: 10px;
-    /* More rounded corners */
+    border-radius: 5px;
     padding: 1rem;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow */
-    transition: transform 0.3s;
 }
 
-.music:hover {
-    transform: translateY(-5px);
-    /* Lift effect on hover */
-}
+
+/* Header */
 
 .header {
     display: flex;
@@ -81,22 +82,19 @@ img {
     margin-bottom: 1rem;
 }
 
-.header .fas {
-    font-size: 1.6rem;
-}
-
+.header .fas,
 .fa-bars {
+    font-size: 1.6rem;
     cursor: pointer;
 }
 
 .header h2 {
     font-size: 1.6rem;
-    font-weight: 600;
-    /* Bolder header */
+    font-weight: 400;
 }
 
 
-/* Details */
+/* Music Details */
 
 .details {
     margin: 2rem 0;
@@ -106,16 +104,13 @@ img {
 .details img {
     width: 70%;
     border: 3px solid var(--color-sec);
-    border-radius: 10px;
-    /* Rounded image corners */
     margin-bottom: 1rem;
 }
 
 .details .artist {
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--blue);
-    /* Softer color for artist name */
+    color: #2974ff;
 }
 
 
@@ -124,8 +119,7 @@ img {
 .controls {
     background: var(--color-dark-grey);
     padding: 2rem 1rem;
-    border-radius: 10px 10px 0 0;
-    /* More rounded corners */
+    border-radius: 5rem 5rem 0 0;
 }
 
 .song-timer {
@@ -137,26 +131,27 @@ img {
 }
 
 
-/* Range slider */
+/* Range Slider */
 
 input[type="range"] {
     appearance: none;
     width: 50%;
-    outline: none;
     height: 2px;
     margin: 0 10%;
-    background: var(--color-grey);
-    /* Background for the slider */
+    outline: none;
 }
 
 input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     height: 2rem;
     width: 2rem;
-    background: var(--blue);
-    /* Softer blue for the thumb */
+    background: #2974ff;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.duration input[type="range"] {
+    width: 80%;
 }
 
 
@@ -169,8 +164,6 @@ input[type="range"]::-webkit-slider-thumb {
     padding: 5px 0;
     background: var(--white);
     border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow */
 }
 
 .buttons>* {
@@ -180,26 +173,14 @@ input[type="range"]::-webkit-slider-thumb {
     padding: 1rem;
     cursor: pointer;
     color: var(--color-dark-grey);
-    transition: background 0.3s;
-}
-
-.buttons>*:hover {
-    background: var(--color-grey);
-    /* Change background on hover */
 }
 
 .play {
-    background: var(--blue);
+    background: #2974ff;
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
     color: var(--white);
-    transition: background 0.3s;
-}
-
-.play:hover {
-    background: var(--color-sec);
-    /* Change color on hover */
 }
 
 .play-all {
@@ -218,37 +199,37 @@ input[type="range"]::-webkit-slider-thumb {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2rem 0 1rem 0;
+    margin: 2rem 0 1rem;
 }
 
-.volume p {
-    background: var(--blue);
-    color: var(--white);
-    font-size: 1.4rem;
+.volume p,
+.volume i {
     height: 2rem;
     padding: 0 3px;
     margin-right: 8px;
-    border-radius: 5px;
-    /* Rounded corners */
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+}
+
+.volume p {
+    background: #2974ff;
 }
 
 .volume i {
     background: var(--color-sec);
-    color: var(--white);
     font-size: 1.2rem;
-    height: 2rem;
-    padding: 0 3px;
-    margin-right: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
-    border-radius: 5px;
-    /* Rounded corners */
+}
+
+.volume input[type="range"] {
+    margin: 0;
 }
 
 
-/* Music Playlist */
+/* Playlist */
 
 .music-playlist {
     position: absolute;
@@ -279,13 +260,13 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 
-/* Playlist Scroll Bar */
+/* Scrollbar */
 
 .playlist-div::-webkit-scrollbar {
     height: 5px;
     width: 4px;
-    border: 1px solid #d5d5d5;
     background: #d5d5d5;
+    border: 1px solid #d5d5d5;
 }
 
 .playlist-div::-webkit-scrollbar-track {
@@ -296,6 +277,9 @@ input[type="range"]::-webkit-slider-thumb {
     background-color: var(--color-primary);
     outline: 1px solid #eee;
 }
+
+
+/* Song List */
 
 .playlist {
     display: flex;
@@ -311,13 +295,7 @@ input[type="range"]::-webkit-slider-thumb {
 .playlist p {
     width: 90%;
     font-size: 1.4rem;
-    border-bottom: 1px solid var(--color-grey);
     padding: 5px 0;
+    border-bottom: 1px solid var(--color-grey);
     cursor: pointer;
-    transition: background 0.3s;
-}
-
-.playlist p:hover {
-    background: var(--color-grey);
-    /* Change background on hover */
 }
